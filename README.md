@@ -1,1 +1,1 @@
-# terraform_vpc
+VPS network in AWS via terraform 
