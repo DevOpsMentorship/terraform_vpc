@@ -1,1 +1,1 @@
-VPS network in AWS via terraform 
+VPC network in AWS via terraform 
