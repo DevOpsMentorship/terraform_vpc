@@ -8,3 +8,13 @@ resource "aws_vpc" "vpc" {
     Name    = "vpc"
   }
 }
+
+# Create Internet Gateway and attach it to VPC
+resource "aws_internet_gateway" "gateway" {
+  vpc_id    = aws_vpc.vpc.id
+
+  tags      = {
+    Name    = "gateway"
+  }
+}
+
