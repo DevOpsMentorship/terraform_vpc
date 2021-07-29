@@ -13,3 +13,9 @@ variable "subnet_cidr" {
   description = "subnet_cidr_block"
   type        = string
 }
+
+variable "route_table_cidr" {
+  default     = "0.0.0.0/0"
+  description = "route_table_cidr_block"
+  type        = string
+}
