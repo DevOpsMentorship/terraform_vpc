@@ -43,3 +43,4 @@ resource "aws_route_table" "public_route_table" {
     Name     = "route_table"
   }
 }
+
