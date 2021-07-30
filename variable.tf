@@ -8,9 +8,9 @@ variable "vpc_cidr" {
   type        = string
 }
 
-variable "subnet_cidr" {
-  default     = "10.0.1.0/24"
-  description = "subnet_cidr_block"
+variable "public_subnet_cidr" {
+  default     = "10.0.0.0/24"
+  description = "public_subnet"
   type        = string
 }
 
@@ -18,4 +18,10 @@ variable "route_table_cidr" {
   default     = "0.0.0.0/0"
   description = "route_table_cidr_block"
   type        = string
+}
+
+variable "private_subnet_cidr" {
+  default = "10.0.1.0/24"
+  description = "private_subnet"
+  type = string
 }
