@@ -25,3 +25,8 @@ variable "private_subnet_cidr" {
   description = "private_subnet"
   type        = string
 }
+
+variable "ssh_key_path" {
+  default = "./vlad/Desktop/london_region_key_pair.pub"
+  description = "path to the public key"
+}

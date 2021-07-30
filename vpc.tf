@@ -8,7 +8,6 @@ resource "aws_vpc" "vpc" {
     Name    = "vpc"
   }
 }
-
 # Create Internet Gateway and attach it to VPC
 resource "aws_internet_gateway" "gateway" {
   vpc_id    = aws_vpc.vpc.id
@@ -22,7 +21,7 @@ resource "aws_internet_gateway" "gateway" {
 resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = var.public_subnet_cidr
-  availability_zone       = "eu-west-2"
+  availability_zone       = "eu-west-2b"
   map_public_ip_on_launch = true
 
   tags      = {
@@ -54,7 +53,7 @@ resource "aws_route_table_association" "public_subnet_route_table_association" {
 resource "aws_subnet" "private_subnet" {
   vpc_id                   = aws_vpc.vpc.id
   cidr_block               = var.private_subnet_cidr
-  availability_zone        = "eu-west-2"
+  availability_zone        = "eu-west-2a"
   map_public_ip_on_launch  = false
 
   tags      = {
