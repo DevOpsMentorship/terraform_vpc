@@ -75,3 +75,14 @@ resource "aws_route_table_association" "private_subnet_route_table_association" 
   subnet_id      = aws_subnet.private_subnet.id
   route_table_id = aws_route_table.private_route_table.id
 }
+
+# Create NAT gateway
+
+resource "aws_nat_gateway" "gateway" {
+  subnet_id         = aws_subnet.private_subnet.id
+  connectivity_type = "private"
+
+  tags = {
+    Name = "NAT gateway"
+  }
+}
