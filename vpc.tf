@@ -27,7 +27,7 @@ resource "aws_subnet" "public_subnet" {
     Name    = "public_subnet"
   }
 }
-# Create Route Table and add Public Route
+# Create Route Table for public subnet
 resource "aws_route_table" "public_route_table" {
   vpc_id       = aws_vpc.vpc.id
 
@@ -37,7 +37,7 @@ resource "aws_route_table" "public_route_table" {
   }
 
   tags       = {
-    Name     = "route_table"
+    Name     = "route_table_for_public"
   }
 }
 # Associate Public Subnet to "Public Route Table"
@@ -54,5 +54,18 @@ resource "aws_subnet" "private_subnet" {
 
   tags      = {
     Name    = "private_subnet"
+  }
+}
+# Create Route Table for private subnet
+resource "aws_route_table" "private_route_table" {
+  vpc_id       = aws_vpc.vpc.id
+
+  route {
+    cidr_block = var.route_table_cidr
+    gateway_id = aws_internet_gateway.gateway.id
+  }
+
+  tags       = {
+    Name     = "route_table_for_private"
   }
 }

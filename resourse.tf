@@ -8,5 +8,5 @@ resource "aws_instance" "aws" {
 
 resource "aws_key_pair" "london_region_key_pair" {
   key_name   = "london_region_key_pair"
-  public_key = file("/home/vlad/Desktop/london_region_key_pair.pub")
+  public_key = file(var.ssh_key_path)
 }
