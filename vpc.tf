@@ -69,3 +69,9 @@ resource "aws_route_table" "private_route_table" {
     Name     = "route_table_for_private"
   }
 }
+
+# Associate Private Subnet to "Private Route Table"
+resource "aws_route_table_association" "private_subnet_route_table_association" {
+  subnet_id      = aws_subnet.private_subnet.id
+  route_table_id = aws_route_table.private_route_table.id
+}
