@@ -58,11 +58,10 @@ resource "aws_subnet" "private_subnet" {
 }
 # Create Route Table for private subnet
 resource "aws_route_table" "private_route_table" {
-  vpc_id       = aws_vpc.vpc.id
-
+  vpc_id         = aws_vpc.vpc.id
   route {
-    cidr_block = var.route_table_cidr
-    gateway_id = aws_internet_gateway.gateway.id
+    cidr_block     = var.route_table_cidr
+    nat_gateway_id = aws_nat_gateway.gateway.id
   }
 
   tags       = {
